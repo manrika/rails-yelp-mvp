@@ -1,0 +1,33 @@
+<h1><%= @restaurant.name %></h1>
+
+<ul>
+  <li>Cuisine: <%= @restaurant.category.upcase %></li>
+  <li>Address: <%= @restaurant.address %></li>
+  <li>Contact number: <%= @restaurant.phone_number %></li>
+</ul>
+
+
+<h3><%=  @restaurant.name %>'s' Reviews</h3>
+  <% @reviews.each do |review| %>
+    <% case review.rating %>
+    <% when 1 %>
+    <% @stars = "⭐" %>
+    <% when 2 %>
+    <% @stars = "⭐⭐" %>
+    <% when 3 %>
+    <% @stars = "⭐⭐⭐" %>
+    <% when 4 %>
+    <% @stars = "⭐⭐⭐⭐" %>
+    <% when 5 %>
+    <% @stars = "⭐⭐⭐⭐⭐" %>
+    <% when 0 %>
+    <% @stars = "sucks" %>
+  <% end %>
+    <ul>
+      <li><%= review.content %> <%= @stars %></li>
+    </ul>
+<% end %>
+
+
+<%= link_to "View all restaurants", restaurants_path %>
+<%= link_to "Add review", new_restaurant_review_path(@restaurant) %>

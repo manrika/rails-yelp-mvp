@@ -8,11 +8,12 @@
 
 10.times do
   puts "Restaurant loading"
-  Restaurant.create(
+  @restaurant = Restaurant.create!(
     name: Faker::Restaurant.name ,
     address: Faker::Address.full_address,
     phone_number: Faker::PhoneNumber.cell_phone_in_e164,
-    category: Faker::Restaurant.type ,
+    category: %w[chinese italian japanese french belgian].sample,
   )
+  puts @restaurant
   puts "New restaurant in town! :D"
 end
