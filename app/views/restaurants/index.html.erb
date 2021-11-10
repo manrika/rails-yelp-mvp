@@ -3,4 +3,4 @@
   <li><%= link_to restaurant.name, restaurant_path(restaurant)  %> - <%= restaurant.category.upcase %> - <%= restaurant.address %> - <%= restaurant.phone_number %></li>
 <% end %>
 
-<%= link_to "Add new restaurant", new_restaurant_path %>
+<%= link_to "Add new restaurant", new_restaurant_path, class: "btn btn-info" %>

@@ -6,7 +6,7 @@
       <%= simple_form_for [@restaurant, @review] do |f| %>
         <%= f.input :content, label: 'Your review', error: 'What you saying dave?' %>
         <%= f.input :rating, label: 'How many stars?', collection: 0..5 %>
-        <%= f.button :submit %>
+        <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

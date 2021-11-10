@@ -8,26 +8,31 @@
 
 
 <h3><%=  @restaurant.name %>'s' Reviews</h3>
-  <% @reviews.each do |review| %>
-    <% case review.rating %>
-    <% when 1 %>
-    <% @stars = "⭐" %>
-    <% when 2 %>
-    <% @stars = "⭐⭐" %>
-    <% when 3 %>
-    <% @stars = "⭐⭐⭐" %>
-    <% when 4 %>
-    <% @stars = "⭐⭐⭐⭐" %>
-    <% when 5 %>
-    <% @stars = "⭐⭐⭐⭐⭐" %>
-    <% when 0 %>
-    <% @stars = "sucks" %>
-  <% end %>
+  <% if @restaurant.reviews.length > 0 %>
+    <% @reviews.each do |review| %>
+      <% case review.rating %>
+      <% when 1 %>
+      <% @stars = "⭐" %>
+      <% when 2 %>
+      <% @stars = "⭐⭐" %>
+      <% when 3 %>
+      <% @stars = "⭐⭐⭐" %>
+      <% when 4 %>
+      <% @stars = "⭐⭐⭐⭐" %>
+      <% when 5 %>
+      <% @stars = "⭐⭐⭐⭐⭐" %>
+      <% when 0 %>
+      <% @stars = "sucks" %>
+    <% end %>
     <ul>
       <li><%= review.content %> <%= @stars %></li>
     </ul>
-<% end %>
+    <% end %>
+  <% else %>
+    <p>No reviews waaah</p>
+  <% end %>
 
 
-<%= link_to "View all restaurants", restaurants_path %>
-<%= link_to "Add review", new_restaurant_review_path(@restaurant) %>
+
+<%= link_to "View all restaurants", restaurants_path, class: "btn btn-info" %>
+<%= link_to "Add review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>

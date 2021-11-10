@@ -5,5 +5,5 @@
   <%= f.input :address, label: 'Address' %>
   <%= f.input :phone_number, label: 'Contact number' %>
   <%= f.input :category, label: 'Cuisine', error: 'select one dave!', collection: %w[chinese italian japanese french belgian] %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
